@@ -7,8 +7,8 @@ class Section extends Component {
   render() {
     return (
         <section>
-            <div class="container-fluid">
-                <table class="table table-hover" cellspacing="3">
+            <div className="container-fluid">
+                <table className="table table-hover" cellSpacing="3">
                     <thead>
                         <tr>
                             <td>City</td>

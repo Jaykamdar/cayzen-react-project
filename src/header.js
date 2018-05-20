@@ -10,45 +10,45 @@ class Header extends Component {
   }
 
   onChange_Country(e){
-      this.props.onChangeCountry(e.target.value);
+    this.props.onChangeCountry(e.target.value);
   }
   componentDidMount(){
 
     fetch("https://api.openaq.org/v1/countries")
     .then(result => {
-        return result.json();
+      return result.json();
     })
     .then(data => {
       let countries = data.results.map((country) => {
         return(                       
-              <option value={country.code}>{ country.name }</option>              
-        )
-      })
-      this.setState({data : countries });
-    })      
-  }
-  
-  render() {
+          <option key={country.code} value={country.code}>{ country.name }</option>              
+          )
+        })
+        this.setState({data : countries });
+      })      
+    }
+    
+    render() {
 
-    return (
+      return (
 
       <header>
-        <div class="container-fluid">
-          <form>
-            <div class="row">  						
-                <div class="col-xs-4 form-group">
-                    <label>Country</label>
-                    <select class="form-control" id="country" onChange={(e)=>this.onChange_Country(e)}>
-                    {this.state.data}
-                    </select>
-                </div>                    
-            </div>
-          </form>
-        </div>
+      <div className="container-fluid">
+      <form>
+      <div className="row">  						
+      <div className="col-xs-4 form-group">
+      <label>Country</label>
+      <select className="form-control" id="country" onChange={(e)=>this.onChange_Country(e)}>
+      {this.state.data}
+      </select>
+      </div>                    
+      </div>
+      </form>
+      </div>
       </header>
-                        
-    );
+      
+      );
+    }
   }
-}
 
-export default Header;
+  export default Header;
