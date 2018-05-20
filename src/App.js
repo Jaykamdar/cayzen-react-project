@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './header';
 import Section from './section';
-
+import PollutionIndex from './pollutionIndex';
 import './App.css';
 
 class App extends Component {
@@ -10,6 +10,8 @@ class App extends Component {
     super();
     this.state = {
       city: [],
+      datas: [] = 'a',
+      pollution: [],
     }
   }
 
@@ -30,6 +32,7 @@ class App extends Component {
                     return(       
                     <tr>                     
                         <td>{measurement.parameter} { measurement.value } { measurement.unit }</td>                        
+                        <td><PollutionIndex pollution= {measurement.value} /></td>
                     </tr>
                 );
                 })
@@ -61,7 +64,7 @@ class App extends Component {
                     return(       
                       <tr>   
                             <td>{measurement.parameter} { measurement.value } { measurement.unit }</td>                    
-                            <td></td>
+                            <td><PollutionIndex pollution= {measurement.value} /></td>
                      </tr>
                         );
                      })
@@ -81,7 +84,8 @@ class App extends Component {
     return (
       <div class="main-wrapper">
         <Header onChangeCountry={this.onChangeCountry.bind(this)} />
-        <Section city = {this.state.city} />            
+        <Section city = {this.state.city} />     
+               
       </div>
                         
     );

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PollutionIndex from './pollutionIndex';
+
 
 class Section extends Component {
 
